@@ -7,7 +7,7 @@ function Card(props) {
       }  
 
     return (
-      <template className="elements-template"> 
+      <div className="elements-template"> 
         <li className="element"> 
           <img className="element__image" src={props.card.link} alt={props.card.name} onClick={handleClick}/> 
           <button type="button" className="element__delete"></button> 
@@ -19,7 +19,7 @@ function Card(props) {
             </div> 
           </div> 
         </li> 
-      </template>
+      </div>
     )
 }
 

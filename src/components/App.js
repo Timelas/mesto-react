@@ -40,7 +40,11 @@ function App() {
   return (
   <div className="page">
     <Header /> 
-    <Main onEditProfile={handleEditProfileClick} onAddPlace={handleAddPlaceClick} onEditAvatar={handleEditAvatarClick} onCardClick={handleCardClick}/>
+    <Main 
+      onEditProfile={handleEditProfileClick} 
+      onAddPlace={handleAddPlaceClick} 
+      onEditAvatar={handleEditAvatarClick} 
+      onCardClick={handleCardClick}/>
     <Footer />
     <PopupWithForm
       title = "Редактировать профиль"
@@ -48,14 +52,16 @@ function App() {
       buttonText = "Сохранить"
       isOpen = {isEditProfilePopupOpen}
       onClose = {closeAllPopups}>
-      <label htmlFor="name-input" className="popup__label"> 
-        <input type="text" className="popup__input popup__input_string_name" id="name-input" placeholder="Ваше имя" name="name" minLength="2" maxLength="40" required /> 
-        <span className="popup__error" id="name-input-error"></span> 
-      </label> 
-      <label htmlFor="subheading-input" className="popup__label"> 
-        <input type="text" className="popup__input popup__input_string_subheading" id="subheading-input" placeholder="Краткое описание профиля" name="about" minLength="2" maxLength="200" required /> 
-        <span className="popup__error" id="subheading-input-error"></span> 
-      </label> 
+        <>
+          <label htmlFor="name-input" className="popup__label"> 
+            <input type="text" className="popup__input popup__input_string_name" id="name-input" placeholder="Ваше имя" name="name" minLength="2" maxLength="40" required /> 
+            <span className="popup__error" id="name-input-error"></span> 
+          </label> 
+          <label htmlFor="subheading-input" className="popup__label"> 
+            <input type="text" className="popup__input popup__input_string_subheading" id="subheading-input" placeholder="Краткое описание профиля" name="about" minLength="2" maxLength="200" required /> 
+            <span className="popup__error" id="subheading-input-error"></span> 
+          </label> 
+        </>
     </PopupWithForm>
     <PopupWithForm
       title = "Новое место"
@@ -63,14 +69,16 @@ function App() {
       buttonText = "Создать"
       isOpen = {isAddPlacePopupOpen}
       onClose = {closeAllPopups}>
-        <label htmlFor="title-input" className="popup__label"> 
-          <input type="text" className="popup__input popup__input_string_title" id="title-input" placeholder="Название" name="title" minLength="2" maxLength="30" required /> 
-          <span className="popup__error" id="title-input-error"></span> 
-        </label> 
-        <label htmlFor="link-input" className="popup__label"> 
-          <input type="url" className="popup__input popup__input_string_link" id="link-input" placeholder="Ссылка на фотографию" name="link" required /> 
-          <span className="popup__error" id="link-input-error"></span> 
-        </label> 
+        <>
+          <label htmlFor="title-input" className="popup__label"> 
+            <input type="text" className="popup__input popup__input_string_title" id="title-input" placeholder="Название" name="title" minLength="2" maxLength="30" required /> 
+            <span className="popup__error" id="title-input-error"></span> 
+          </label> 
+          <label htmlFor="link-input" className="popup__label"> 
+            <input type="url" className="popup__input popup__input_string_link" id="link-input" placeholder="Ссылка на фотографию" name="link" required /> 
+            <span className="popup__error" id="link-input-error"></span> 
+          </label> 
+        </>
       </PopupWithForm>
       <PopupWithForm
         title ="Обновить Аватар"
