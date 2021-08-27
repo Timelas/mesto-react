@@ -3,7 +3,9 @@ import logo from '../images/logo.svg';
 
 function Header() {
   return (
-    <img alt='Логотип Mesto Russia' src={logo}/>
+    <header className="header"> 
+      <img alt='Логотип Mesto Russia' className="header__logo" src={logo}/>
+    </header> 
   );
 }
 
