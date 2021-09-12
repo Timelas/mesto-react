@@ -59,6 +59,13 @@
       .then(this._checkAnswer)
     }
 
+    changeLike(cardId, isLiked) {
+      if (isLiked) {
+      return this.likeCard(cardId);
+    } else {
+      return this.dislikeCard(cardId)
+    }}
+
     deleteCard(cardId) {
       return fetch(`${this._baseUrl}/cards/${cardId}`, {
         method: 'DELETE',
