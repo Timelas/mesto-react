@@ -30,11 +30,11 @@ return (
     onClose = {onClose}
     handleSubmit={handleSubmit}>
       <label htmlFor="title-input" className="popup__label"> 
-        <input type="text" className="popup__input popup__input_string_title" id="title-input" placeholder="Название" name="title" minLength="2" maxLength="30" required onChange={handleChangeName} /> 
+        <input type="text" className="popup__input popup__input_string_title" id="title-input" placeholder="Название" name="title" minLength="2" maxLength="30" required onChange={handleChangeName} value={name}/> 
         <span className="popup__error" id="title-input-error"></span> 
       </label> 
       <label htmlFor="link-input" className="popup__label"> 
-        <input type="url" className="popup__input popup__input_string_link" id="link-input" placeholder="Ссылка на фотографию" name="link" required onChange={handleChangeLink}  /> 
+        <input type="url" className="popup__input popup__input_string_link" id="link-input" placeholder="Ссылка на фотографию" name="link" required onChange={handleChangeLink} value={link} /> 
         <span className="popup__error" id="link-input-error"></span> 
       </label> 
   </PopupWithForm>

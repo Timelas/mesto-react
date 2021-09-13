@@ -18,7 +18,7 @@ function App() {
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
   const [selectedCard, setSelectedCards] = React.useState({isOpen: false});
-  const [currentUser , setCurrentUser ] = React.useState("");
+  const [currentUser , setCurrentUser] = React.useState({});
   const [cards, setCards] = React.useState([]);
 
   React.useEffect(()  => {
@@ -66,9 +66,12 @@ React.useEffect(() => {
 
   function handleCardLike(card) {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
-    api.changeLike(card._id, !isLiked).then((newCard) => {
+    api.changeLike(card._id, !isLiked)
+    .then((newCard) => {
         setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
-    });
+    })
+    .catch((err) => {
+      console.log(err)});
   } 
 
   function handleCardDelete(card) {
@@ -77,7 +80,21 @@ React.useEffect(() => {
         const newCards = cards.filter((elem) => elem !== card);
         setCards(newCards)
     })
+    .catch((err) => {
+      console.log(err)});
   }
+
+  React.useEffect(() => {
+    const closeByEscape = (e) => {
+      if (e.key === 'Escape') {
+        closeAllPopups();
+      }
+    }
+
+    document.addEventListener('keydown', closeByEscape)
+    
+    return () => document.removeEventListener('keydown', closeByEscape)
+}, [])
 
 function handleUpdateUser({name, about}) {
   api.editProfile(name, about)

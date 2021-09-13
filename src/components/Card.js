@@ -30,11 +30,11 @@ function Card(props) {
     <div className="elements-template"> 
       <li className="element"> 
         <img className="element__image" src={props.card.link} alt={props.card.name} onClick={handleClick}/> 
-        <button type="button" className="element__delete" className={cardDeleteButtonClassName} onClick={handleCardDelete}></button> 
+        <button type="button" className={cardDeleteButtonClassName} onClick={handleCardDelete}></button> 
           <div className="element__group"> 
             <h2 className="element__text">{props.card.name}</h2> 
             <div className="element__heart"> 
-              <button type="button" className="element__like" className={cardLikeButtonClassName} onClick={handleLikeClick}></button> 
+              <button type="button" className={cardLikeButtonClassName} onClick={handleLikeClick}></button> 
               <p className="element__amount">{props.card.likes.length}</p> 
           </div> 
         </div> 

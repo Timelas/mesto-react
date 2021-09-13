@@ -26,7 +26,7 @@ import PopupWithForm from './PopupWithForm';
   React.useEffect(() => {
     setName(currentUser.name);
     setDescription(currentUser.about);
-  }, [currentUser]); 
+  }, [currentUser, isOpen]); 
 
 return (
 <PopupWithForm
